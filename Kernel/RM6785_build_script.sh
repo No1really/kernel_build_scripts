@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # clone repo
-git clone --depth=1 https://github.com/No1really/Azrael-RM6785.git -b az-full-lto
-cd azrael_kernel_RM6785
+git clone --depth=1 https://github.com/No1really/ThunderstormReborn-RM6785.git -b az-full-lto
+cd ThunderstormReborn-RM6785
 # Dependencies
 deps() {
     echo "Cloning dependencies"
@@ -24,11 +24,11 @@ PATH="${PWD}/clang/bin:${PATH}"
 export KBUILD_COMPILER_STRING
 ARCH=arm64
 export ARCH
-KBUILD_BUILD_HOST=AbzRaider
+KBUILD_BUILD_HOST=MrMnml
 export KBUILD_BUILD_HOST
-KBUILD_BUILD_USER="AbzRaider"
+KBUILD_BUILD_USER="MrMnml"
 export KBUILD_BUILD_USER
-REPO_URL="https://github.com/AbzRaider/android-kernel_Azrael-RM6785.git"
+REPO_URL="https://github.com/No1really/ThunderstormReborn-RM6785.git"
 export REPO_URL
 DEVICE="RM6785 Devices"
 export DEVICE
@@ -83,7 +83,7 @@ push() {
 # Find Error
 finderr() {
 		LOG=$(echo *.log)
-        tgs "${LOG}" "Build throw an error(s)"
+        tgs "${LOG}" "Build threw an error(s)"
     exit 1
 }
 # Compile plox
@@ -121,9 +121,9 @@ make O=out ARCH="${ARCH}" "${DEFCONFIG}"
 # Zipping
 zipping() {
     cd AnyKernel || exit 1
-    zip -r9 Azrael-Test-OSS-"${BRANCH}"-KERNEL-"${CODENAME}"-"${DATE}".zip ./*
+    zip -r9 ThunderstormReborn-RM6785-"${BRANCH}"-KERNEL-"${CODENAME}"-"${DATE}".zip ./*
     curl -sL https://git.io/file-transfer | sh
-    ./transfer wet Azrael-Test-OSS-"${BRANCH}"-KERNEL-"${CODENAME}"-"${DATE}".zip
+    ./transfer wet ThunderstormReborn-Test-"${BRANCH}"-KERNEL-"${CODENAME}"-"${DATE}".zip
     cd ..
 }
 
